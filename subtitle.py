@@ -6,25 +6,41 @@ filename='srt.txt'
 file = open(filename, "r")
 
 def caltime(str):
-    return 3600*str[0]+60*str[1]+str[2]
+    #returns time in seconds
+    return 3600*int(str[0])+60*int(str[1])+int(str[0:2])+int(str[3:])/1000.0
 
 
-# hello world
-for x in range(1,3) :
+#create list of all lines
+lines=file.readlines()
 
-
-    line= file.readline()
-    if line[1] =='':
-        time=file.readline();
-        times=split(time,'-->')
-        time1=split( times[0],':')
-        time2=split(times[1], ':')
+#remove \n items from list lines
+newlines=[]
+while line in lines:
+    if line!='\n':
+        newlines.append(line)
+        
+clock=time.clock()       
+counter=1
+for x in range(0,len(newlines)) :
+    
+    if  newlines[x]==string(counter)+'\n':
+        tim=newlines[x+1]
+        times=tim.split(' --> ')
+        time1=times[0].split(':')
+        time2=times[1].split(':')
         t1=caltime(time1)
         t2=caltime(time2)
         delay=t2-t1
-
-        print file.readline()
+        
+        while(t1>time.clock())
+            continue
+        i=x+2    
+        while newlines[i]!=string(counter+1)+'\n':    
+            print newlines[i]
+            i=i+1
         time.sleep(delay)
+        os.system('cls')
+        counter=counter+1
         
     
 # end of code
