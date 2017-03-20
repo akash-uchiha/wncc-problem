@@ -1,3 +1,13 @@
+import os,  time
+
+filename='srt.txt'
+
+
+file = open(filename, "r")
+
+def caltime(str):
+    #returns time in seconds
+    return 3600*int(str[0])+60*int(str[1])+int(str[2][0:2])+int(str[2][3:])/1000.0
 
 
 #create list of all lines
@@ -8,7 +18,9 @@ newlines=[]
 for line in lines:
     if line!='\n':
         newlines.append(line)
-        
+
+newlines[0]='1\n'
+
 clock=time.clock()       
 counter=1
 
@@ -36,3 +48,4 @@ for x in range(0,len(newlines)) :
         
     
 # end of code
+    
